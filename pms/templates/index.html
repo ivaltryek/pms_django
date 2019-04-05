@@ -1,4 +1,26 @@
 {% extends "nav.html"%}
 {% block content %}
 
+<br><br>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8">
+                <h3>
+                    Placements:<br>
+                    <small class="text-muted">Click on Placement Updates to display details</small><br><br>
+                    <ol type="1" class="list-group">
+                            {% for placement in placelist %}
+                            <li class=""><a href="{{ placement.id }}">Dept: {{ placement.department }}, Company: {{ placement.company }}</a></li>
+                        </ol>
+                </h3>
+            </div>
+        </div>
+
+
+
+        {% endfor %}
+    </div>
+
+
+
 {% endblock content %}

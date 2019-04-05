@@ -20,6 +20,6 @@ class User(AbstractUser):
     department = models.CharField(max_length=2)
     contact = models.BigIntegerField()
     username = models.CharField(max_length=18,unique=True)
+    unique_id = models.CharField(max_length=10,unique=True )
     def __str__(self):
         return self.username
-

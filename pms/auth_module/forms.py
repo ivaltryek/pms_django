@@ -40,7 +40,13 @@ class UserForm(UserCreationForm):
             "id":"email",
         }
     ))
-
+    unique_id = forms.CharField(required=True, widget = forms.TextInput(
+        attrs={
+            "class":"form-control",
+            "id":"unique_id",
+            "placeholder":"Department In Capitals and it follows as issued.!"
+        }
+    ))
     department = forms.CharField(required = True,widget = forms.TextInput(
         attrs={
             "class":"form-control",
@@ -56,6 +62,7 @@ class UserForm(UserCreationForm):
     class Meta:
         model = User
         fields = (
+            'unique_id',
             'username',
             'first_name',
             'last_name',
@@ -64,12 +71,20 @@ class UserForm(UserCreationForm):
             'password2',
             'department',
             'contact',
+
         )
 
         widgets = {
             'username': forms.TextInput(attrs = {
                 "class":"form-control",
                 "id":"username",
+
+            }
+            ),
+            'UniqueID': forms.TextInput(attrs = {
+                "class":"form-control",
+                "id":"uniqueid",
+                "placeholder":"Department In Capitals and as it follows!"
             }
             ),
             'first_name':forms.TextInput(attrs={

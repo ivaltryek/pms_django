@@ -49,6 +49,11 @@ def login_form(request):
             login(request, user)
             print(request.user.is_authenticated())
             request.session['user'] = username
+            profile = User.objects.get(username = username)
+            request.session['department'] = profile.department
+            request.session['unique_id'] = profile.unique_id
+            print('dept:',request.session['department'])
+            print('id: ',request.session['unique_id'])
             if request.user.is_superuser:
                 return redirect('superuser:superuserpage')
             return redirect('index')

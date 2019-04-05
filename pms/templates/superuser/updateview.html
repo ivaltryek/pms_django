@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<br>
+<div class="container">
+    <h3>
+        Update Placement Details<br>
+        <small class="text-muted">Update fields as your requirements</small>
+    </h3>
+
+    <div class="row">
+        <div class="col-md-6">
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-danger">Update</button>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

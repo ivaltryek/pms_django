@@ -24,11 +24,10 @@ STATIC_DIR = os.path.join(BASE_DIR,"static")
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'k9^h2t7w+ur=^$1*h#2h)be)iuom=wu$(62m=7%y+rb=@=z@s@'
-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost','127.0.0.1']
 
 AUTH_USER_MODEL = "auth_module.User"
 LOGIN_URL = '/login/'
@@ -44,7 +43,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'teacher',
+    'student',
+    'import_export',
 ]
+IMPORT_EXPORT_USE_TRANSACTIONS = True
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

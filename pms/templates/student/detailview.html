@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <div class="jumbotron">
+        <h3 class="display-4">Placement Detailed View</h2>
+    </div>
+    <div class="container">
+            <div class="row">
+                <div class="col-md-5">
+                        <p>Company Name: {{ placementdetail.company }}</p>
+                        <p>Department: {{ placementdetail.department }}</p>
+                        <p>Due Date: {{ placementdetail.due_date }}</p>
+                        <p>Company URL: <a href="{{placementdetail.company_url}}">{{ placementdetail.company_url }}</a></p><br>
+                        Criteria:<textarea rows="7" cols="35" disabled>{{ placementdetail.criteria}}</textarea><br><hr>
+                </div>
+            </div>
+    </div>
+    <a class="btn btn-warning" href="{% url 'student:applyform' %}">Submit Placement Form</a>&nbsp; &nbsp;
+    <a class="btn btn-primary" href="{% url "student:listplacement" %}">BackToHome</a>
+
+</div>
+{% endblock %}

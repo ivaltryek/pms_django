@@ -21,4 +21,5 @@ urlpatterns = [
     url(r'^$',views.index, name="index"),
     url(r'^auth/',include('auth_module.urls',namespace='auth_module')),
     url(r'^superuser/',include('teacher.urls', namespace='superuser')),
+    url(r'^student/',include('student.urls', namespace='student')),
 ]

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <h3>
+        Confirm Submission<br>
+        <small class="text-muted">If you're good to go, click on confirm.!</small>
+    </h3>
+    <div class="row">
+        <div class="col-md-6">
+            <form method="POST" action="{%url "student:applyform"%}">
+                {% csrf_token %}
+                Registered Student ID:
+                <input type="text" name="registeredstu" class="form-class" value="{{request.session.unique_id}}">
+                <button type="submit" class="btn btn-success">Confirm <i class="fa fa-check" aria-hidden="true"></i>
+                    </span></button>
+
+            </form>
+        </div>
+
+    </div>
+    {% endblock %}

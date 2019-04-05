@@ -83,7 +83,7 @@
                 <h3>
                     Placements Record Entries<br>
                     <small class="text-muted">Click on List Placements to display entries</small><br><br>
-                    <ol class="list-group">
+                    <ol type="1" class="list-group">
                             {% for placement in placements %}
                             <li class="list-group-item"><a href="{{ placement.id }}">Dept: {{ placement.department }}, Company: {{ placement.company }}</a></li>
                         </ol>
