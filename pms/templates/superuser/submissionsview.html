@@ -1,0 +1,35 @@
+{% extends "superuser/supernav.html"%}
+{% block content %}
+
+<br><br>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8">
+            <h3>
+                Placements:<br>
+                <small class="text-muted">Submitted Requests</small><br><br>
+                <table class="table table-responsive-sm table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">StudentID</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for sub in submission %}
+                        <tr>
+                            <td>{{sub.id}}</th>
+                            <td><a href="{{ sub.registered_student }}">{{ sub.registered_student }}</a></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+        </div>
+    </div>
+
+</div>
+
+
+
+{% endblock content %}

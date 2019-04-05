@@ -1,0 +1,28 @@
+{% extends "superuser/supernav.html"%}
+{% block content %}
+
+<div class="container"><br>
+    <h3>
+        Submission Detailed View<br>
+        <small class="text-muted">Registered Student Details</small>
+    </h3>
+    <hr>
+
+    <div class="row">
+        <div class="col-md-6">
+
+            <p>Student ID: {{details.student_id}}</p>
+            <p>Student CPI: {{details.student_cpi}}</p>
+            <p>Student Firstname: {{details.firstname}}</p>
+            <p>Student Lastname: {{details.lastname}}</p>
+            <p>Student Department: {{details.department}}</p>
+
+
+
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock content %}
