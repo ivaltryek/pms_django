@@ -2,24 +2,48 @@
 {% block content %}
 
 <br><br>
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-8">
-                <h3>
-                    Placements:<br>
-                    <small class="text-muted">Click on Placement Updates to display details</small><br><br>
-                    <ol type="1" class="list-group">
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8">
+            <h3>
+                Placements:<br></h3>
+                <h4><small class="text-muted">Click on Placement Updates to display details</small><br><br></h4>
+                <ol type="1" class="list-group">
+
+                    <table class="table table-responsive-sm table-bordered table-hover">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Department</th>
+                                <th scope="col">Company</th>
+                            </tr>
+                        </thead>
+                        <tbody>
                             {% for placement in placelist %}
-                            <li class=""><a href="{{ placement.id }}">Dept: {{ placement.department }}, Company: {{ placement.company }}</a></li>
-                        </ol>
-                </h3>
-            </div>
+                            <tr>
+                                <td>
+                                    <a href="{{ placement.id }}/{{placement.company}}">{{ placement.id }}</a>
+                                </td>
+                                <td>
+                                    {{ placement.department }}
+                                </td>
+                                <td>
+                                    {{ placement.company }}
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+
+                </ol>
+            </h3>
         </div>
-
-
-
-        {% endfor %}
     </div>
+
+
+
+
+</div>
 
 
 

@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'superuser/supernav.html' %}
 {% block content %}
 <br>
 <br>
@@ -16,7 +16,7 @@
                 {% csrf_token %}
                 {{form.as_p}}
                 <button type="submit" class="btn btn-primary">Add <i class="fa fa-check" aria-hidden="true"></i>
-                </span></button>
+                </span></button><br>
 
             </form>
         </div>

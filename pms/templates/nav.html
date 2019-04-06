@@ -44,8 +44,6 @@
                 {% if request.session.user %}
                    <span class="text-light">Welcome Back: {{request.session.user }}</span></span>
                      <div class="dropdown-menu" aria-labelledby="navbarDropdowns">
-                      <a class="dropdown-item" href="../userops/profile.php">Profile</a>
-                      <a class="dropdown-item" href="#">Manage Account</a>
                       <div class="dropdown-divider"></div>
                       <a class="dropdown-item" href="{%url "auth_module:logout"%}">Signout?</a>
                     </div>

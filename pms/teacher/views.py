@@ -101,6 +101,8 @@ class SubmissionDetailView(LoginRequiredMixin, DetailView):
     def get_context_data(self, **kwargs):
         context = super(SubmissionDetailView, self).get_context_data(**kwargs)
         slug = self.kwargs['slug']
+        #ob = RegisterdStudents.objects.get(registered_student=slug)
+        #context['extra'] = ob
         return context
 
     def get_queryset(self):

@@ -6,6 +6,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{%static "css/bootcss.css"%}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title></title>
 </head>
@@ -27,7 +29,7 @@
                     <a class="nav-link" href="{% url "superuser:sublist" %}">View Submissions</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url "superuser:list" %}">List Placements</a>
+                    <a class="nav-link" href="{% url "superuser:list" %}">List Placements <i class="fas fa-th-list"></i></a>
                 </li>
                 <!-- <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -41,7 +43,7 @@
             </div>
           </li> -->
                 <li class="nav-item">
-                    <a class="nav-link " href="{% url "superuser:addplacement" %}">Add Placement</a>
+                    <a class="nav-link " href="{% url "superuser:addplacement" %}">Add Placement <i class="fas fa-plus"></i></a>
                 </li>
             </ul>
             <div class="dropdown">
@@ -50,12 +52,10 @@
                     <span class="text-dark">
 
                         {% if request.session.user %}
-                        <span class="text-light">Welcome Back: {{request.session.user }}</span></span>
+                        <span class="text-light">Welcome Back: <i class="fas fa-user"></i> {{request.session.user }}</span></span>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdowns">
-                        <a class="dropdown-item" href="../userops/profile.php">Profile</a>
-                        <a class="dropdown-item" href="#">Manage Account</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="{%url "auth_module:logout"%}">Signout?</a>
+                        <a class="dropdown-item" href="{%url "auth_module:logout"%}">Signout <i class="fas fa-sign-out-alt"></i></a>
                     </div>
                     {% else %}
                     <a href="{% url "auth_module:login" %}"><span class="text-light">Login</span></a>
@@ -80,20 +80,37 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-8">
-                <h3>
-                    Placements Record Entries<br>
-                    <small class="text-muted">Click on List Placements to display entries</small><br><br>
-                    <ol type="1" class="list-group">
-                            {% for placement in placements %}
-                            <li class="list-group-item"><a href="{{ placement.id }}">Dept: {{ placement.department }}, Company: {{ placement.company }}</a></li>
-                        </ol>
-                </h3>
+
+                <h3>Placements Record Entries</h3>
+                <h4><small class="text-muted">Click on List Placements to display entries</small></h4><br><br>
+                <table class="table table-responsive-sm table-bordered table-hover">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Department</th>
+                            <th scope="col">Company</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for placement in placements %}
+                        <tr>
+                            <td>
+                                <a href="{{ placement.id }}"><u><b>{{ placement.id }}</b></u></a>
+                            </td>
+                            <td>
+                                {{ placement.department }}
+                            </td>
+                            <td>
+                                {{ placement.company }}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+
             </div>
         </div>
-
-
-
-        {% endfor %}
     </div>
 
     {%endblock%}

@@ -6,6 +6,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{%static "css/bootcss.css"%}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title></title>
 </head>
@@ -27,7 +29,7 @@
                     <a class="nav-link" href="{% url "superuser:sublist" %}">View Submissions</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url "superuser:list" %}">List Placements</a>
+                    <a class="nav-link" href="{% url "superuser:list" %}">List Placements <i class="fas fa-th-list"></i></a>
                 </li>
                 <!-- <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -41,7 +43,7 @@
             </div>
           </li> -->
                 <li class="nav-item">
-                    <a class="nav-link " href="{% url "superuser:addplacement" %}">Add Placement</a>
+                    <a class="nav-link " href="{% url "superuser:addplacement" %}">Add Placement <i class="fas fa-plus"></i></a>
                 </li>
             </ul>
             <div class="dropdown">
@@ -50,12 +52,11 @@
                     <span class="text-dark">
 
                         {% if request.session.user %}
-                        <span class="text-light">Welcome Back: {{request.session.user }}</span></span>
+                        <span class="text-light">Welcome Back:<i class="fas fa-user"></i> {{request.session.user }}</span></span>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdowns">
-                        <a class="dropdown-item" href="../userops/profile.php">Profile</a>
-                        <a class="dropdown-item" href="#">Manage Account</a>
+
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="{%url "auth_module:logout"%}">Signout?</a>
+                        <a class="dropdown-item" href="{%url "auth_module:logout"%}">Signout  <i class="fas fa-sign-out-alt"></i></a>
                     </div>
                     {% else %}
                     <a href="{% url "auth_module:login" %}"><span class="text-light">Login</span></a>

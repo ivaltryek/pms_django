@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'superuser/supernav.html' %}
 {% block content %}
 <div class="container">
     <div class="jumbotron">
@@ -11,10 +11,10 @@
                     <p>Department: {{ placementdetail.department }}</p>
                     <p>Due Date: {{ placementdetail.due_date }}</p>
                     <p>Company URL: <a href="{{placementdetail.company_url}}">{{ placementdetail.company_url }}</a></p><br>
-                    Criteria:<textarea rows="7" cols="35" disabled>{{ placementdetail.criteria}}</textarea><br><hr>
+                    Criteria:<textarea rows="7" cols="35" readonly>{{ placementdetail.criteria}}</textarea><br><hr>
                     <a class="btn btn-warning" href="{% url "superuser:update" pk=placementdetail.pk %}">Update?</a>&nbsp; &nbsp;
                     <a class="btn btn-danger" href="{% url "superuser:delete" pk=placementdetail.pk %}">Delete?</a>&nbsp; &nbsp;
-                    <a class="btn btn-primary" href="{% url "superuser:superuserpage" %}">BackToHome</a>
+                    <a class="btn btn-primary" href="{% url "superuser:superuserpage" %}">Home <i class="fas fa-home"></i></a>
 
 
             </div>

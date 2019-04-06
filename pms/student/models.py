@@ -1,5 +1,9 @@
+
 from django.db import models
+from django.db.models.fields import IntegerField
 from django.template.defaultfilters import slugify
+from django.urls import reverse
+
 # Create your models here.
 
 
@@ -24,6 +28,13 @@ class StudentDetails(models.Model):
 
 class RegisterdStudents(models.Model):
     registered_student = models.ForeignKey(StudentDetails,related_name = 'student_rid',on_delete = models.DO_NOTHING)
-
+    slug = models.SlugField(default=0,unique=True,verbose_name="Company Name")
     def __str__(self):
         return "{0}".format(self.registered_student)
+
+    def get_absolute_url(self):
+        return reverse("student:listdetail",kwargs={'pk':self.pk})
+
+    def save(self, *args, **kwargs):
+        if not self.slug: self.slug = slugify(self.registered_student)
+        super(RegisterdStudents, self).save(*args, **kwargs)
