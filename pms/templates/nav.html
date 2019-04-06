@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{%static "css/bootcss.css"%}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title></title>
 </head>
@@ -17,7 +19,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="{% url "index" %}">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="{% url "index" %}"> <i class="fas fa-home"></i> Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Edit request</a>
@@ -34,7 +36,7 @@
             </div>
           </li> -->
           <li class="nav-item">
-            <a class="nav-link " href="{% url "student:listplacement" %}">View Placement Updates</a>
+            <a class="nav-link " href="{% url "student:listplacement" %}"><i class="fas fa-th-list"></i> View Placement Updates</a>
           </li>
         </ul>
         <div class="dropdown">
@@ -42,10 +44,10 @@
               <span class = "text-dark">
 
                 {% if request.session.user %}
-                   <span class="text-light">Welcome Back: {{request.session.user }}</span></span>
+                   <span class="text-light">Welcome Back:<i class="fas fa-user"></i>  {{request.session.user }}</span></span>
                      <div class="dropdown-menu" aria-labelledby="navbarDropdowns">
                       <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="{%url "auth_module:logout"%}">Signout?</a>
+                      <a class="dropdown-item" href="{%url "auth_module:logout"%}"><i class="fas fa-sign-out-alt"></i> Signout</a>
                     </div>
                {% else %}
                      <a  href="{% url "auth_module:login" %}"><span class = "text-light">Login</span></a>
