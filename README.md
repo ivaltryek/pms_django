@@ -7,3 +7,11 @@ Database: MySQL Server
 Framework: Django
 Language: Python
 ```
+
+## Highlights
+
+```
+Used Django OOP based concepts
+Used Django Forms for user Forms
+
+```
