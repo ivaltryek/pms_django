@@ -1,0 +1,2 @@
+web: gunicorn pms_django.wsgi --log-file -
+
