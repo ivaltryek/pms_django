@@ -16,10 +16,11 @@ Including another URLconf
 from django.conf.urls import url,include
 from django.contrib import admin
 from . import views
+app_name = 'pms'
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$',views.index, name="index"),
-    url(r'^auth/',include('auth_module.urls',namespace='auth_module')),
-    url(r'^superuser/',include('teacher.urls', namespace='superuser')),
-    url(r'^student/',include('student.urls', namespace='student')),
+    url(r'^auth/',include(('auth_module.urls','auth_module'),namespace='auth_module')),
+    url(r'^superuser/',include(('teacher.urls','teacher'), namespace='superuser')),
+    url(r'^student/',include(('student.urls','student'), namespace='student')),
 ]

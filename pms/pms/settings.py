@@ -27,7 +27,7 @@ SECRET_KEY = 'k9^h2t7w+ur=^$1*h#2h)be)iuom=wu$(62m=7%y+rb=@=z@s@'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost','127.0.0.1']
+ALLOWED_HOSTS = ['localhost','127.0.0.1','djangopms.herokuapp.com']
 
 AUTH_USER_MODEL = "auth_module.User"
 LOGIN_URL = '/login/'
@@ -49,6 +49,7 @@ INSTALLED_APPS = [
 IMPORT_EXPORT_USE_TRANSACTIONS = True
 
 MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -86,12 +87,12 @@ DATABASES = {
     'default': {
         # 'ENGINE': 'django.db.backends.sqlite3',
         # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'pms',
-        'USER': 'mj',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'django_placement',
+        'USER': 'meliodas',
         'PASSWORD': 'joker',
         'HOST': 'localhost',
-        'PORT': '3306',
+        'PORT': '',
     }
 }
 
@@ -131,6 +132,8 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
+PROJECT_ROOT   =   os.path.join(os.path.abspath(__file__))
+STATIC_ROOT  =   os.path.join(PROJECT_ROOT, 'staticfiles')
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
@@ -138,3 +141,9 @@ STATICFILES_DIRS = [
 ]
 LOGIN_REDIRECT_URL = 'index'
 LOGOUT_REDIRECT_URL = 'auth_module:login'
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
+
+import dj_database_url 
+prod_db  =  dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(prod_db)

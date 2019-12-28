@@ -41,13 +41,13 @@ def login_form(request):
         username = form.cleaned_data.get("username")
         password = form.cleaned_data.get("password")
         print("User Logged In?")
-        print(request.user.is_authenticated())
+        #print(request.user.is_authenticated())
         user = authenticate(username = username, password = password)
        # print(request.POST.get('username'))
         if user is not None:
 
             login(request, user)
-            print(request.user.is_authenticated())
+            #print(request.user.is_authenticated())
             request.session['user'] = username
             profile = User.objects.get(username = username)
             request.session['department'] = profile.department
@@ -61,4 +61,4 @@ def login_form(request):
             messages.error(request, 'Oops,Credentials are wrong try again')
     else:
         print('invalid')
-    return render(request,"registration/login.html",{'form':form},context_instance)
+    return render(request,"registration/login.html",{'form':form})
